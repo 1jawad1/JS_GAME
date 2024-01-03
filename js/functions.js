@@ -11,11 +11,11 @@ function calculeDamage({rectangle1, rectangle2, reverse = false}){
     
     if(reverse){
         return(
-            (rectangle2.position.x + rectangle2.size.x - rectangle1.attaque.position.x  )*0.1
+            (rectangle2.position.x + rectangle2.size.x - rectangle1.attaque.position.x  )*0.08
         )
     }else{
         return(
-            (rectangle1.attaque.position.x + rectangle1.attaque.size.x - rectangle2.position.x )*0.1
+            (rectangle1.attaque.position.x + rectangle1.attaque.size.x - rectangle2.position.x )*0.08
         )
     }
 
