@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Animation Example</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <style>
+        
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            margin: 0px;
+            background: linear-gradient(225deg, #d37c7cde 100px, #544bb3ab 1000px);
+        }
+
+        canvas {
+            margin: 0px;
+            height: 100%;
+            width: 100%; 
+            border-radius: min(1vh, 1vw);
+            box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.662);
+            
+        }
+
+        .container{
+            display: inline-block;
+            height: min(90vh, calc(90vw/1.78));
+            width: min(90vw, calc(90vh*1.78));
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mid-Container{
+            display: flex;
+            position: absolute;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 15%;
+            width: 100%;
+
+        }
+
+        .small-container{
+            height: 70%;
+            width: 70%;
+            display: flex;
+            position: relative;
+            align-items: flex-start;
+            justify-content: space-between;
+
+        }
+
+        .timer{
+            height: 100%;
+            aspect-ratio: 1/1;
+            background-color: rgba(13, 13, 13, 0.578);
+            border: 1px solid white;
+            border-radius: min(1vh, 1vw);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: sans-serif;
+            font-weight: 600;
+            font-size: min(2.5vw, 5vh);
+        }
+
+        .health-player,
+        .health-enemy{
+            position: relative;
+            height: 50%;
+            width: 30%;
+        }
+
+        .bg_health{
+            background-color: rgba(33, 44, 64, 0.857);
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            border: 1px solid black;
+            border-radius: min(1vh, 1vw);
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        #playerHealth,
+        #enemyHealth{
+            position: relative;
+            border: 1px solid black;
+            border-radius: min(1vh, 1vw);
+            height: 100%;
+            width: 100%;
+            z-index: 3;
+
+        }
+
+        .winer{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(218, 96, 31, 0.737);
+            font-family: 'Bungee Shade';
+            font-size: min(4vh, 2vw);
+            font-weight: 600;
+            z-index: 5;
+        }
+
+        .photo{
+            height: 90%;
+            aspect-ratio: 1/1;
+            border: 1px solid black;
+            border-radius: min(4vh, 4vw);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="winer"></div>
+
+    <div class="container">
+        <div class="mid-Container">
+            <img src="" alt="" class="photo" id="player">
+            <div class="small-container">
+                <!-- player health -->
+                <div class = "health-player" style="display: flex; justify-content: flex-end;">
+                    <div class = "bg_health"></div>
+                    <div  id="playerHealth" style="background-color: rgba(211, 107, 107, 0.796);"></div>
+                </div>
+                <!-- timer -->
+                <div class="timer" id="timer">
+                    60
+                </div>
+                <!-- enemy health -->
+                <div class="health-enemy" >
+                    <div class = "bg_health"></div>
+                    <div  id="enemyHealth" style="background-color: rgba(64, 64, 190, 0.824);"></div>
+                </div>
+            </div>
+            <img src="" alt="" class="photo" id="enemy">
+        </div>
+    
+        <canvas id="myCanvas" ></canvas>
+    </div>
+
+    <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" 
+    integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/classes.js" defer></script>
+    <script src="js/functions.js" defer></script>
+    <script src="script.js" defer></script>
+
+
+</body>
+</html>
