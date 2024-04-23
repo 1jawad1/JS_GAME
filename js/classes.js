@@ -2,7 +2,7 @@
 
 class Sprite{
 
-    constructor( { position, imageSrc, scale= 1, framesMax=1, framesHold, offset = {x: 0, y: 0}, debug = false } ){
+    constructor( { position, imageSrc, scale= 1, framesMax=1, framesHold=1, offset = {x: 0, y: 0}, debug = false } ){
         this.position = position
         this.image = new Image()
         this.image.src = imageSrc
@@ -82,7 +82,7 @@ class Fighter extends Sprite{
         sprites,
         groundPosition,
         debug,
-        speed = 7.5,
+        speed ,
         profileSrc
 
     } ){
@@ -130,7 +130,7 @@ class Fighter extends Sprite{
             sprites[sprite].image = new Image();
             sprites[sprite].image.src = sprites[sprite].imageSrc
         }
-        console.log(sprites)
+        // console.log(sprites)
     }
 
 
@@ -166,13 +166,17 @@ class Fighter extends Sprite{
 
     }
 
+    spawn(){
+        this.position.y = 0
+    }
+
     attaking(){
         this.isAttaking = true
         this.switchSprite('Attack1')
     }
 
     takeHits(hitGiver, reverse = false, id){
-        this.health = this.health - calculeDamage({rectangle1: hitGiver, rectangle2: this, reverse: reverse}) >= 0 ? this.health - calculeDamage({rectangle1: hitGiver, rectangle2: this, reverse: reverse}) : 0;
+        this.health = this.health - calculeDamage({rectangle1: hitGiver, rectangle2: this, reverse: reverse, damageFactor: this.damage}) >= 0 ? this.health - calculeDamage({rectangle1: hitGiver, rectangle2: this, reverse: reverse,  damageFactor: this.damage}) : 0;
         gsap.to(id,{
             width: this.health + '%'
         })
@@ -225,7 +229,7 @@ class Fighter extends Sprite{
                             this.framesHold = this.sprites.Attack1.framesHold
                             this.currentFrame = 0
                             
-                            console.log('attaque')
+                            // console.log('attaque')
                         }
                         break
                     case 'takeHit':
@@ -235,7 +239,6 @@ class Fighter extends Sprite{
                             this.framesHold = this.sprites.takeHit.framesHold
                             this.currentFrame = 0
                             
-                            console.log('attaque')
                         }
                         break
                     case 'Death':
@@ -245,7 +248,6 @@ class Fighter extends Sprite{
                             this.framesHold = this.sprites.Death.framesHold
                             this.currentFrame = 0
                             
-                            console.log('attaque')
                         }
                         break
                 }

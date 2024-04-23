@@ -123,6 +123,86 @@
             border-radius: min(4vh, 4vw);
         }
 
+        #start{
+            position: absolute;
+            left: 53%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+            height: min(6vh, 6vw);
+            aspect-ratio: 3/1;
+            border: 1px solid rgba(6, 6, 6, 0.713);
+            background-color: rgba(255, 255, 255, 0.789);
+            border-radius:  min(1vh, 1vw);
+            font-size: min(2vh, 2vw);
+            font-family: sans-serif;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.711);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: min(1vh, 1vw);
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        #start:hover {
+            transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+            height: min(7vh, 7vw);
+            bottom: min(1vh, 1vw);
+            
+        }
+
+        .homeContainer{
+            display: grid;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            grid-template: repeat(5, 1fr)/20% repeat(6, 1fr) 15%;
+            
+            
+        }
+
+        .player1,
+        .player2{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .player1{
+            grid-area: 4/2/5/4;
+        }
+
+        .player2{
+            grid-area: 4/6/5/8;
+        }
+
+        .flèche{
+            width: min(4vh, 4vw);
+            aspect-ratio: 1/1;
+            padding: min(0.5vh, 0.5vw);
+            border-radius: min(1vh, 1vw);
+        }
+
+        .flèche:hover{
+            box-shadow: inset 1px 1px 5px 1px rgba(255, 255, 255, 0.41);
+            transition: all 0.5s cubic-bezier(0.1, 0, 0, 1);
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        .flèche:active{
+            box-shadow: inset 1px 1px 5px 1px rgba(255, 255, 255, 0.41);
+            transition: all 0.5s cubic-bezier(0.1, 0, 0, 1);
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
 
     </style>
 </head>
@@ -130,6 +210,8 @@
     <div class="winer"></div>
 
     <div class="container">
+    <div id="start">START</div>
+
         <div class="mid-Container">
             <img src="" alt="" class="photo" id="player">
             <div class="small-container">
@@ -140,7 +222,7 @@
                 </div>
                 <!-- timer -->
                 <div class="timer" id="timer">
-                    60
+                    5
                 </div>
                 <!-- enemy health -->
                 <div class="health-enemy" >
@@ -152,6 +234,23 @@
         </div>
     
         <canvas id="myCanvas" ></canvas>
+
+
+        <div class="homeContainer">
+
+        <div class="player1">
+            <img src="img/Gauche.png" alt="" class="flèche g_1" >
+            <img src="img/Droite.png" alt="" class="flèche d_1" >
+
+        </div>
+
+        <div class="player2">
+            <img src="img/Gauche.png" alt="" class="flèche g_2" >
+            <img src="img/Droite.png" alt="" class="flèche d_2" >
+
+        </div>            
+        </div>
+
     </div>
 
     <script 
@@ -160,7 +259,9 @@
     crossorigin="anonymous" 
     referrerpolicy="no-referrer"
     ></script>
+    <script src="js/userSprites.js" defer></script>
     <script src="js/classes.js" defer></script>
+    <script src="js/update.js" defer></script>
     <script src="js/functions.js" defer></script>
     <script src="script.js" defer></script>
 
