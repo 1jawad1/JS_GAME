@@ -311,6 +311,81 @@ let secondPlayerSprits = [
         debug: false
 
 
+    },
+    {
+        position: 
+        {
+            x: 300,
+            y: 360
+        },
+        velocity:
+        {
+            x: 0,
+            y: 10
+        },
+        size:
+        {
+            x: 50,
+            y: 120
+        },
+        speed: {
+            x: 7.5,
+            y: 12
+        },
+        color: 'blue',
+        health: 100,
+        damage: 0.08,
+        offsetX: 45,
+        offsetY: 40,
+        imageSrc : './img/Fantasy Warrior/Idle.png',
+        profileSrc : './img/Fantasy Warrior/preview.png',
+        framesMax: 10,
+        scale: 2,
+        offset: {
+            x: -175,
+            y: -123
+        },
+        framesHold: 10,
+        sprites: {
+            Idle: {
+                imageSrc: './img/Fantasy Warrior/Idle.png',
+                framesMax: 10,
+                framesHold: 7
+            },
+            Run: {
+                imageSrc: './img/Fantasy Warrior/Run.png',
+                framesMax: 8,
+                framesHold: 7
+            },
+            Jump: {
+                imageSrc: './img/Fantasy Warrior/Jump.png',
+                framesMax: 3,
+                framesHold: 2
+            },
+            Fall: {
+                imageSrc: './img/Fantasy Warrior/Fall.png',
+                framesMax: 3,
+                framesHold: 2
+            },
+            Attack1: {
+                imageSrc: './img/Fantasy Warrior/Attack1.png',
+                framesMax: 7,
+                framesHold: 4
+            },
+            takeHit: {
+                imageSrc: './img/Fantasy Warrior/Take Hit.png',
+                framesMax: 3,
+                framesHold: 5
+            },
+            Death: {
+                imageSrc: './img/Fantasy Warrior/Death.png',
+                framesMax: 7,
+                framesHold: 5
+            }
+        },
+        groundPosition: 360,
+        debug: true
+
     }
 
 
